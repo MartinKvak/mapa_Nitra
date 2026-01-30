@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart City Nitra – Mapa</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { font-family: sans-serif; display: flex; }
+    .container { width: 350px; padding: 20px; z-index: 1000; background: white; box-shadow: 2px 0 5px rgba(0,0,0,0.1); height: 100vh; overflow-y: auto; }
+    #map { flex-grow: 1; height: 100vh; } /* Mapa vyplní zvyšok obrazovky */
+    .result p { font-size: 0.9em; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+    select, input, button { width: 100%; margin-bottom: 15px; padding: 8px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Nitra Smart City</h1>
+  <label>Ulica v Nitre</label>
+  <input type="text" id="poloha" placeholder="napr. Svätoplukovo námestie">
+
+  <label>Typ aktivity</label>
+  <select id="typ">
+    <option value="prechádzka">Prechádzka</option>
+    <option value="deti">Deti</option>
+    <option value="šport">Šport</option>
+    <option value="relax">Relax</option>
+    <option value="beh">Beh</option>
+  </select>
+
+  <select id="preferencie" multiple>
+    <option value="deti">Deti</option>
+    <option value="beh">Beh</option>
+    <option value="relax">Relax</option>
+    <option value="šport">Šport</option>
+</select>
+
+  <button onclick="handleSubmit()">Odporučiť a zobraziť</button>
+  <div class="result" id="result"></div>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
